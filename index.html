@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legacy — Tracker de Patrimoine Privé</title>
+  <meta name="description" content="Legacy est un tracker de patrimoine personnel, privé et hors-ligne. Bitcoin, actions, immobilier, or. Aucun compte, aucun serveur." />
+  <meta property="og:title" content="Legacy — Tracker de Patrimoine Privé" />
+  <meta property="og:description" content="Privé. Hors-ligne. Open source. Suivez votre patrimoine sans confier vos données à personne." />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#0f0d1e',
+            card: '#1a1730',
+            accent: '#7c6af7',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0f0d1e; }
+    .gradient-text {
+      background: linear-gradient(135deg, #7c6af7, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .phone-shadow { box-shadow: 0 25px 60px rgba(124, 106, 247, 0.25); }
+  </style>
+</head>
+<body class="text-white font-sans antialiased">
+
+  <!-- Nav -->
+  <nav class="flex justify-between items-center px-6 py-5 max-w-6xl mx-auto">
+    <span class="text-xl font-bold gradient-text">Legacy</span>
+    <div class="flex gap-6 text-sm text-gray-400">
+      <a href="#features" class="hover:text-white transition">Fonctionnalités</a>
+      <a href="#privacy" class="hover:text-white transition">Confidentialité</a>
+      <a href="https://github.com/El-Gatoni/Legacy" target="_blank" class="hover:text-white transition">GitHub</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="text-center px-6 pt-16 pb-20 max-w-4xl mx-auto">
+    <div class="inline-block bg-[#1a1730] text-purple-300 text-xs font-medium px-4 py-1.5 rounded-full mb-8 border border-purple-900/50">
+      Open Source · GPL-3.0 · 100% Gratuit
+    </div>
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
+      Votre patrimoine.<br />
+      <span class="gradient-text">Rien que le vôtre.</span>
+    </h1>
+    <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+      Legacy est un tracker de patrimoine personnel, privé et hors-ligne.
+      Bitcoin, actions, immobilier, or, livrets — tout en un.
+      <strong class="text-white">Zéro compte. Zéro cloud. Zéro compromis.</strong>
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://el-gatoni.github.io/Legacy/"
+         class="bg-[#7c6af7] hover:bg-[#6a58e5] text-white font-semibold px-8 py-4 rounded-xl transition text-lg">
+        Lancer l'application →
+      </a>
+      <a href="https://github.com/El-Gatoni/Legacy" target="_blank"
+         class="border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-xl transition text-lg">
+        Voir le code source
+      </a>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="px-6 pb-24 max-w-6xl mx-auto">
+    <div class="flex gap-4 justify-center flex-wrap">
+      <img src="https://raw.githubusercontent.com/El-Gatoni/Legacy/main/fastlane/metadata/android/en-US/images/phoneScreenshots/01_accueil.jpg"
+           alt="Tableau de bord patrimoine" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
+      <img src="https://raw.githubusercontent.com/El-Gatoni/Legacy/main/fastlane/metadata/android/en-US/images/phoneScreenshots/02_bitcoin.jpg"
+           alt="Suivi Bitcoin" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
+      <img src="https://raw.githubusercontent.com/El-Gatoni/Legacy/main/fastlane/metadata/android/en-US/images/phoneScreenshots/03_bourse.jpg"
+           alt="Portefeuille actions" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
+      <img src="https://raw.githubusercontent.com/El-Gatoni/Legacy/main/fastlane/metadata/android/en-US/images/phoneScreenshots/04_immobilier.jpg"
+           alt="Immobilier" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="px-6 py-20 max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Tout votre patrimoine, en un coup d'œil</h2>
+    <p class="text-gray-400 text-center mb-14 max-w-xl mx-auto">Des actifs aux passifs, Legacy couvre l'ensemble de votre situation patrimoniale.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">₿</div>
+        <h3 class="font-semibold text-lg mb-2">Bitcoin & DCA</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Suivi de stack avec P&L automatique, prix moyen d'achat (DCA) et cours en direct via CoinGecko.</p>
+      </div>
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">📈</div>
+        <h3 class="font-semibold text-lg mb-2">Portefeuille actions</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Suivi du PRU, valorisation en temps réel via Yahoo Finance. Désactivable titre par titre.</p>
+      </div>
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">🏠</div>
+        <h3 class="font-semibold text-lg mb-2">Immobilier</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Prix d'achat, valeur actuelle, crédits en cours. Vue complète de votre patrimoine immobilier.</p>
+      </div>
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">🥇</div>
+        <h3 class="font-semibold text-lg mb-2">Or physique & ETC</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Cours spot automatique pour l'or physique et les ETCs (papier). Valorisation en temps réel.</p>
+      </div>
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">💰</div>
+        <h3 class="font-semibold text-lg mb-2">Épargne & Livrets</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Livret A, LDDS, PEL, obligations — centralisez tous vos comptes épargne avec taux et soldes.</p>
+      </div>
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">📊</div>
+        <h3 class="font-semibold text-lg mb-2">Évolution du patrimoine</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Graphique interactif avec filtres 1S / 2S / 1M / 6M / YTD / 1A / Max. Visualisez votre progression.</p>
+      </div>
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">📉</div>
+        <h3 class="font-semibold text-lg mb-2">Tracker de passif</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Prêts, dettes collatérales — le patrimoine net est calculé automatiquement actifs moins passifs.</p>
+      </div>
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">🔐</div>
+        <h3 class="font-semibold text-lg mb-2">Verrouillage PIN</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Protégez l'accès à l'application avec un code PIN. Vos données restent sur votre appareil.</p>
+      </div>
+
+      <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
+        <div class="text-3xl mb-4">💾</div>
+        <h3 class="font-semibold text-lg mb-2">Export / Import JSON</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Sauvegardez vos données dans un fichier JSON lisible. Restaurez en un clic sur n'importe quel appareil.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy" class="px-6 py-20 max-w-4xl mx-auto text-center">
+    <div class="bg-[#1a1730] rounded-3xl p-10 md:p-14 border border-purple-900/40">
+      <div class="text-5xl mb-6">🔒</div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Privé par conception</h2>
+      <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+        Legacy stocke toutes vos données dans le <strong class="text-white">localStorage de votre navigateur</strong>,
+        sur votre appareil. Les seules requêtes réseau sont les récupérations de cours — désactivables.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 text-sm">
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Aucun compte requis</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Zéro serveur</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Pas d'analytics</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Pas de publicités</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Open source GPL-3.0</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Export JSON</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-6 py-20 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Prêt à reprendre le contrôle ?</h2>
+    <p class="text-gray-400 mb-10 text-lg">Aucune installation. Fonctionne directement dans votre navigateur.</p>
+    <a href="https://el-gatoni.github.io/Legacy/"
+       class="inline-block bg-[#7c6af7] hover:bg-[#6a58e5] text-white font-semibold px-12 py-4 rounded-xl transition text-lg">
+      Lancer Legacy gratuitement →
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/60 px-6 py-10 text-center text-gray-500 text-sm">
+    <p class="mb-2">
+      <a href="https://github.com/El-Gatoni/Legacy" target="_blank" class="hover:text-gray-300 transition">GitHub</a>
+      ·
+      <a href="https://github.com/El-Gatoni/Legacy/blob/main/LICENSE" target="_blank" class="hover:text-gray-300 transition">GPL-3.0</a>
+    </p>
+    <p>Legacy — Fait avec ♥ pour la souveraineté financière</p>
+  </footer>
+
+</body>
+</html>
