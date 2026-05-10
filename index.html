@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Legacy — Tracker de Patrimoine Privé</title>
   <meta name="description" content="Legacy est un tracker de patrimoine personnel, privé et hors-ligne. Bitcoin, actions, immobilier, or. Aucun compte, aucun serveur." />
-  <meta property="og:title" content="Legacy — Tracker de Patrimoine Privé" />
-  <meta property="og:description" content="Privé. Hors-ligne. Open source. Suivez votre patrimoine sans confier vos données à personne." />
+  <meta property="og:title" content="Legacy — Private Wealth Tracker" />
+  <meta property="og:description" content="Privacy-first, offline personal wealth tracker. Bitcoin, stocks, real estate, gold. No account, no cloud." />
   <meta property="og:type" content="website" />
+  <link rel="alternate" hreflang="fr" href="https://legacy-app.io/" />
+  <link rel="alternate" hreflang="en" href="https://legacy-app.io/?lang=en" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -31,6 +33,8 @@
       background-clip: text;
     }
     .phone-shadow { box-shadow: 0 25px 60px rgba(124, 106, 247, 0.25); }
+    .lang-btn { transition: all 0.15s ease; }
+    .lang-btn.active { background: #7c6af7; color: white; }
   </style>
 </head>
 <body class="text-white font-sans antialiased">
@@ -38,34 +42,41 @@
   <!-- Nav -->
   <nav class="flex justify-between items-center px-6 py-5 max-w-6xl mx-auto">
     <span class="text-xl font-bold gradient-text">Legacy</span>
-    <div class="flex gap-6 text-sm text-gray-400">
-      <a href="#features" class="hover:text-white transition">Fonctionnalités</a>
-      <a href="#privacy" class="hover:text-white transition">Confidentialité</a>
+    <div class="flex items-center gap-6 text-sm text-gray-400">
+      <a href="#features" class="hover:text-white transition" data-i18n="nav.features">Fonctionnalités</a>
+      <a href="#privacy" class="hover:text-white transition" data-i18n="nav.privacy">Confidentialité</a>
       <a href="https://github.com/El-Gatoni/Legacy" target="_blank" class="hover:text-white transition">GitHub</a>
+      <!-- Language toggle -->
+      <div class="flex rounded-lg border border-gray-700 overflow-hidden text-xs font-medium">
+        <button id="btn-fr" onclick="setLang('fr')" class="lang-btn active px-3 py-1.5 text-white">FR</button>
+        <button id="btn-en" onclick="setLang('en')" class="lang-btn px-3 py-1.5 text-gray-400 hover:text-white">EN</button>
+      </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="text-center px-6 pt-16 pb-20 max-w-4xl mx-auto">
-    <div class="inline-block bg-[#1a1730] text-purple-300 text-xs font-medium px-4 py-1.5 rounded-full mb-8 border border-purple-900/50">
+    <div class="inline-block bg-[#1a1730] text-purple-300 text-xs font-medium px-4 py-1.5 rounded-full mb-8 border border-purple-900/50" data-i18n="hero.badge">
       Open Source · GPL-3.0 · 100% Gratuit
     </div>
     <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
-      Votre patrimoine.<br />
-      <span class="gradient-text">Rien que le vôtre.</span>
+      <span data-i18n="hero.h1a">Votre patrimoine.</span><br />
+      <span class="gradient-text" data-i18n="hero.h1b">Rien que le vôtre.</span>
     </h1>
-    <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+    <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed" data-i18n="hero.sub">
       Legacy est un tracker de patrimoine personnel, privé et hors-ligne.
       Bitcoin, actions, immobilier, or, livrets — tout en un.
       <strong class="text-white">Zéro compte. Zéro cloud. Zéro compromis.</strong>
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="https://el-gatoni.github.io/Legacy/"
-         class="bg-[#7c6af7] hover:bg-[#6a58e5] text-white font-semibold px-8 py-4 rounded-xl transition text-lg">
+         class="bg-[#7c6af7] hover:bg-[#6a58e5] text-white font-semibold px-8 py-4 rounded-xl transition text-lg"
+         data-i18n="hero.cta">
         Lancer l'application →
       </a>
       <a href="https://github.com/El-Gatoni/Legacy" target="_blank"
-         class="border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-xl transition text-lg">
+         class="border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-xl transition text-lg"
+         data-i18n="hero.github">
         Voir le code source
       </a>
     </div>
@@ -75,74 +86,74 @@
   <section class="px-6 pb-24 max-w-6xl mx-auto">
     <div class="flex gap-4 justify-center flex-wrap">
       <img src="https://raw.githubusercontent.com/El-Gatoni/Legacy/main/fastlane/metadata/android/en-US/images/phoneScreenshots/01_accueil.jpg"
-           alt="Tableau de bord patrimoine" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
+           alt="Dashboard" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
       <img src="https://raw.githubusercontent.com/El-Gatoni/Legacy/main/fastlane/metadata/android/en-US/images/phoneScreenshots/02_bitcoin.jpg"
-           alt="Suivi Bitcoin" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
+           alt="Bitcoin tracking" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
       <img src="https://raw.githubusercontent.com/El-Gatoni/Legacy/main/fastlane/metadata/android/en-US/images/phoneScreenshots/03_bourse.jpg"
-           alt="Portefeuille actions" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
+           alt="Stock portfolio" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
       <img src="https://raw.githubusercontent.com/El-Gatoni/Legacy/main/fastlane/metadata/android/en-US/images/phoneScreenshots/04_immobilier.jpg"
-           alt="Immobilier" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
+           alt="Real estate" class="h-80 md:h-96 rounded-2xl phone-shadow" loading="lazy" />
     </div>
   </section>
 
   <!-- Features -->
   <section id="features" class="px-6 py-20 max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Tout votre patrimoine, en un coup d'œil</h2>
-    <p class="text-gray-400 text-center mb-14 max-w-xl mx-auto">Des actifs aux passifs, Legacy couvre l'ensemble de votre situation patrimoniale.</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4" data-i18n="features.title">Tout votre patrimoine, en un coup d'œil</h2>
+    <p class="text-gray-400 text-center mb-14 max-w-xl mx-auto" data-i18n="features.sub">Des actifs aux passifs, Legacy couvre l'ensemble de votre situation patrimoniale.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">₿</div>
-        <h3 class="font-semibold text-lg mb-2">Bitcoin & DCA</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Suivi de stack avec P&L automatique, prix moyen d'achat (DCA) et cours en direct via CoinGecko.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f1.title">Bitcoin & DCA</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f1.desc">Suivi de stack avec P&L automatique, prix moyen d'achat (DCA) et cours en direct via CoinGecko.</p>
       </div>
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">📈</div>
-        <h3 class="font-semibold text-lg mb-2">Portefeuille actions</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Suivi du PRU, valorisation en temps réel via Yahoo Finance. Désactivable titre par titre.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f2.title">Portefeuille actions</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f2.desc">Suivi du PRU, valorisation en temps réel via Yahoo Finance. Désactivable titre par titre.</p>
       </div>
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">🏠</div>
-        <h3 class="font-semibold text-lg mb-2">Immobilier</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Prix d'achat, valeur actuelle, crédits en cours. Vue complète de votre patrimoine immobilier.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f3.title">Immobilier</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f3.desc">Prix d'achat, valeur actuelle, crédits en cours. Vue complète de votre patrimoine immobilier.</p>
       </div>
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">🥇</div>
-        <h3 class="font-semibold text-lg mb-2">Or physique & ETC</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Cours spot automatique pour l'or physique et les ETCs (papier). Valorisation en temps réel.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f4.title">Or physique & ETC</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f4.desc">Cours spot automatique pour l'or physique et les ETCs. Valorisation en temps réel.</p>
       </div>
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">💰</div>
-        <h3 class="font-semibold text-lg mb-2">Épargne & Livrets</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Livret A, LDDS, PEL, obligations — centralisez tous vos comptes épargne avec taux et soldes.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f5.title">Épargne & Livrets</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f5.desc">Livret A, LDDS, PEL, obligations — centralisez tous vos comptes épargne avec taux et soldes.</p>
       </div>
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">📊</div>
-        <h3 class="font-semibold text-lg mb-2">Évolution du patrimoine</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Graphique interactif avec filtres 1S / 2S / 1M / 6M / YTD / 1A / Max. Visualisez votre progression.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f6.title">Évolution du patrimoine</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f6.desc">Graphique interactif avec filtres 1S / 2S / 1M / 6M / YTD / 1A / Max. Visualisez votre progression.</p>
       </div>
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">📉</div>
-        <h3 class="font-semibold text-lg mb-2">Tracker de passif</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Prêts, dettes collatérales — le patrimoine net est calculé automatiquement actifs moins passifs.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f7.title">Tracker de passif</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f7.desc">Prêts, dettes collatérales — le patrimoine net est calculé automatiquement actifs moins passifs.</p>
       </div>
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">🔐</div>
-        <h3 class="font-semibold text-lg mb-2">Verrouillage PIN</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Protégez l'accès à l'application avec un code PIN. Vos données restent sur votre appareil.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f8.title">Verrouillage PIN</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f8.desc">Protégez l'accès à l'application avec un code PIN. Vos données restent sur votre appareil.</p>
       </div>
 
       <div class="bg-[#1a1730] rounded-2xl p-6 border border-purple-900/20">
         <div class="text-3xl mb-4">💾</div>
-        <h3 class="font-semibold text-lg mb-2">Export / Import JSON</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Sauvegardez vos données dans un fichier JSON lisible. Restaurez en un clic sur n'importe quel appareil.</p>
+        <h3 class="font-semibold text-lg mb-2" data-i18n="f9.title">Export / Import JSON</h3>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="f9.desc">Sauvegardez vos données dans un fichier JSON lisible. Restaurez en un clic sur n'importe quel appareil.</p>
       </div>
 
     </div>
@@ -152,28 +163,29 @@
   <section id="privacy" class="px-6 py-20 max-w-4xl mx-auto text-center">
     <div class="bg-[#1a1730] rounded-3xl p-10 md:p-14 border border-purple-900/40">
       <div class="text-5xl mb-6">🔒</div>
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Privé par conception</h2>
-      <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="privacy.title">Privé par conception</h2>
+      <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed" data-i18n="privacy.desc">
         Legacy stocke toutes vos données dans le <strong class="text-white">localStorage de votre navigateur</strong>,
         sur votre appareil. Les seules requêtes réseau sont les récupérations de cours — désactivables.
       </p>
       <div class="flex flex-wrap justify-center gap-3 text-sm">
-        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Aucun compte requis</span>
-        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Zéro serveur</span>
-        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Pas d'analytics</span>
-        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Pas de publicités</span>
-        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Open source GPL-3.0</span>
-        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40">✓ Export JSON</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40" data-i18n="p1">✓ Aucun compte requis</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40" data-i18n="p2">✓ Zéro serveur</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40" data-i18n="p3">✓ Pas d'analytics</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40" data-i18n="p4">✓ Pas de publicités</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40" data-i18n="p5">✓ Open source GPL-3.0</span>
+        <span class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full border border-green-900/40" data-i18n="p6">✓ Export JSON</span>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="px-6 py-20 text-center">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">Prêt à reprendre le contrôle ?</h2>
-    <p class="text-gray-400 mb-10 text-lg">Aucune installation. Fonctionne directement dans votre navigateur.</p>
+    <h2 class="text-4xl md:text-5xl font-bold mb-4" data-i18n="cta.title">Prêt à reprendre le contrôle ?</h2>
+    <p class="text-gray-400 mb-10 text-lg" data-i18n="cta.sub">Aucune installation. Fonctionne directement dans votre navigateur.</p>
     <a href="https://el-gatoni.github.io/Legacy/"
-       class="inline-block bg-[#7c6af7] hover:bg-[#6a58e5] text-white font-semibold px-12 py-4 rounded-xl transition text-lg">
+       class="inline-block bg-[#7c6af7] hover:bg-[#6a58e5] text-white font-semibold px-12 py-4 rounded-xl transition text-lg"
+       data-i18n="cta.btn">
       Lancer Legacy gratuitement →
     </a>
   </section>
@@ -185,8 +197,121 @@
       ·
       <a href="https://github.com/El-Gatoni/Legacy/blob/main/LICENSE" target="_blank" class="hover:text-gray-300 transition">GPL-3.0</a>
     </p>
-    <p>Legacy — Fait avec ♥ pour la souveraineté financière</p>
+    <p data-i18n="footer">Legacy — Fait avec ♥ pour la souveraineté financière</p>
   </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        "nav.features": "Fonctionnalités",
+        "nav.privacy": "Confidentialité",
+        "hero.badge": "Open Source · GPL-3.0 · 100% Gratuit",
+        "hero.h1a": "Votre patrimoine.",
+        "hero.h1b": "Rien que le vôtre.",
+        "hero.sub": `Legacy est un tracker de patrimoine personnel, privé et hors-ligne.
+          Bitcoin, actions, immobilier, or, livrets — tout en un.
+          <strong class="text-white">Zéro compte. Zéro cloud. Zéro compromis.</strong>`,
+        "hero.cta": "Lancer l'application →",
+        "hero.github": "Voir le code source",
+        "features.title": "Tout votre patrimoine, en un coup d'œil",
+        "features.sub": "Des actifs aux passifs, Legacy couvre l'ensemble de votre situation patrimoniale.",
+        "f1.title": "Bitcoin & DCA",
+        "f1.desc": "Suivi de stack avec P&L automatique, prix moyen d'achat (DCA) et cours en direct via CoinGecko.",
+        "f2.title": "Portefeuille actions",
+        "f2.desc": "Suivi du PRU, valorisation en temps réel via Yahoo Finance. Désactivable titre par titre.",
+        "f3.title": "Immobilier",
+        "f3.desc": "Prix d'achat, valeur actuelle, crédits en cours. Vue complète de votre patrimoine immobilier.",
+        "f4.title": "Or physique & ETC",
+        "f4.desc": "Cours spot automatique pour l'or physique et les ETCs. Valorisation en temps réel.",
+        "f5.title": "Épargne & Livrets",
+        "f5.desc": "Livret A, LDDS, PEL, obligations — centralisez tous vos comptes épargne avec taux et soldes.",
+        "f6.title": "Évolution du patrimoine",
+        "f6.desc": "Graphique interactif avec filtres 1S / 2S / 1M / 6M / YTD / 1A / Max. Visualisez votre progression.",
+        "f7.title": "Tracker de passif",
+        "f7.desc": "Prêts, dettes collatérales — le patrimoine net est calculé automatiquement actifs moins passifs.",
+        "f8.title": "Verrouillage PIN",
+        "f8.desc": "Protégez l'accès à l'application avec un code PIN. Vos données restent sur votre appareil.",
+        "f9.title": "Export / Import JSON",
+        "f9.desc": "Sauvegardez vos données dans un fichier JSON lisible. Restaurez en un clic sur n'importe quel appareil.",
+        "privacy.title": "Privé par conception",
+        "privacy.desc": `Legacy stocke toutes vos données dans le <strong class="text-white">localStorage de votre navigateur</strong>,
+          sur votre appareil. Les seules requêtes réseau sont les récupérations de cours — désactivables.`,
+        "p1": "✓ Aucun compte requis",
+        "p2": "✓ Zéro serveur",
+        "p3": "✓ Pas d'analytics",
+        "p4": "✓ Pas de publicités",
+        "p5": "✓ Open source GPL-3.0",
+        "p6": "✓ Export JSON",
+        "cta.title": "Prêt à reprendre le contrôle ?",
+        "cta.sub": "Aucune installation. Fonctionne directement dans votre navigateur.",
+        "cta.btn": "Lancer Legacy gratuitement →",
+        "footer": "Legacy — Fait avec ♥ pour la souveraineté financière",
+      },
+      en: {
+        "nav.features": "Features",
+        "nav.privacy": "Privacy",
+        "hero.badge": "Open Source · GPL-3.0 · Free Forever",
+        "hero.h1a": "Your wealth.",
+        "hero.h1b": "Yours alone.",
+        "hero.sub": `Legacy is a privacy-first, offline personal wealth tracker.
+          Bitcoin, stocks, real estate, gold, savings — all in one place.
+          <strong class="text-white">No account. No cloud. No compromise.</strong>`,
+        "hero.cta": "Launch the app →",
+        "hero.github": "View source code",
+        "features.title": "Your full financial picture, at a glance",
+        "features.sub": "From assets to liabilities, Legacy covers your entire net worth.",
+        "f1.title": "Bitcoin & DCA",
+        "f1.desc": "Stack tracking with automatic P&L, average cost basis (DCA) and live prices via CoinGecko.",
+        "f2.title": "Stock portfolio",
+        "f2.desc": "Cost basis tracking, real-time valuation via Yahoo Finance. Can be disabled per ticker.",
+        "f3.title": "Real estate",
+        "f3.desc": "Purchase price, current estimated value, outstanding loans. Full view of your property portfolio.",
+        "f4.title": "Physical gold & ETCs",
+        "f4.desc": "Automatic spot price for physical gold and gold ETCs. Real-time valuation.",
+        "f5.title": "Savings accounts",
+        "f5.desc": "Savings accounts and bonds — centralize all your accounts with rates and balances.",
+        "f6.title": "Wealth evolution chart",
+        "f6.desc": "Interactive chart with 1W / 2W / 1M / 6M / YTD / 1Y / Max filters. Visualize your progress.",
+        "f7.title": "Liability tracker",
+        "f7.desc": "Loans, collateral debts — net worth is computed automatically as assets minus liabilities.",
+        "f8.title": "PIN lock",
+        "f8.desc": "Protect access to the app with a PIN code. Your data stays on your device.",
+        "f9.title": "JSON Export / Import",
+        "f9.desc": "Back up your data to a human-readable JSON file. Restore in one click on any device.",
+        "privacy.title": "Private by design",
+        "privacy.desc": `Legacy stores all your data in your <strong class="text-white">browser's localStorage</strong>,
+          on your device. The only network requests are price fetches — and those can be disabled.`,
+        "p1": "✓ No account required",
+        "p2": "✓ No server",
+        "p3": "✓ No analytics",
+        "p4": "✓ No ads",
+        "p5": "✓ Open source GPL-3.0",
+        "p6": "✓ JSON export",
+        "cta.title": "Ready to take back control?",
+        "cta.sub": "No installation. Runs directly in your browser.",
+        "cta.btn": "Launch Legacy for free →",
+        "footer": "Legacy — Built with ♥ for financial sovereignty",
+      }
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      history.replaceState(null, '', lang === 'en' ? '?lang=en' : '/');
+    }
+
+    // Auto-detect language on load
+    const param = new URLSearchParams(location.search).get('lang');
+    const preferred = param || (navigator.language.startsWith('fr') ? 'fr' : 'en');
+    if (preferred === 'en') setLang('en');
+  </script>
 
 </body>
 </html>
